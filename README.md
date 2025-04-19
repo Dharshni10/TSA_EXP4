@@ -30,24 +30,24 @@ from statsmodels.tsa.arima.model import ARIMA
 from statsmodels.tsa.arima_process import ArmaProcess
 from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 
- data=pd.read_csv('silver.csv')
+data=pd.read_csv('gold.csv')
 
 N = 1000
 plt.rcParams['figure.figsize'] = [12, 6]
-X = data['USD'][::-1].reset_index(drop=True)
+X = data['USD (AM)'][::-1].reset_index(drop=True)
 plt.plot(X)
-plt.title('Silver Prices (USD)')
+plt.title('gold Prices (USD)')
 plt.xlabel('Time')
 plt.ylabel('Price')
 plt.show()
 
 plt.subplot(2, 1, 1)
 plot_acf(X, lags=int(len(X)/4), ax=plt.gca())
-plt.title('Silver Prices ACF')
+plt.title('Gold Prices ACF')
 
 plt.subplot(2, 1, 2)
 plot_pacf(X, lags=int(len(X)/4), ax=plt.gca())
-plt.title('Silver Prices PACF')
+plt.title('gold Prices PACF')
 
 plt.tight_layout()
 plt.show()
